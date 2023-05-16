@@ -1,10 +1,16 @@
 pipeline {
 agent any
 tools {
+jsk 'Java17'
 maven 'maven'
 }
 
 stages {
+  stage('Which Java?') {
+      steps {
+          sh 'java --version'
+      }
+  }
   stage('Install'){
     steps {
       echo "***************Install mvn dependencies and build jar"
