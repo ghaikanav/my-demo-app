@@ -29,12 +29,12 @@ stages {
     }
   }
 
-  stage('Dockerise and run'){
-    steps{
-      sh "docker build -t myApp"
-      sh "docker run -p 8081:8081 myApp"
-    }
-  }
+//   stage('Dockerise and run'){
+//     steps{
+//       sh "docker build -t myapp "
+//       sh "docker run -p 8081:8081 myapp"
+//     }
+//   }
 }
 post {
         failure {
