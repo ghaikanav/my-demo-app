@@ -31,17 +31,8 @@ stages {
 
   stage('Dockerise and run'){
     steps{
-        // Install and configure Docker tooling
-        tool name: 'docker', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
-
-          // Build the Docker image
-          script {
-              def dockerImage = docker.build("myApp:${env.BUILD_NUMBER}")
-          }
-
-          script {
-                    docker.image("myApp:${env.BUILD_NUMBER}").run('-p 8081:8081')
-          }
+      sh "docker build -t myApp"
+      sh "docker run -p 8081:8081 myApp"
     }
   }
 }
