@@ -29,9 +29,10 @@ stages {
     }
   }
 
-  stage('Run'){
+  stage('Dockerise and run'){
     steps{
-      sh "mvn spring-boot:run"
+      sh "docker build -t myApp"
+      sh "docker run -p 8081:8081 myApp"
     }
   }
 }
