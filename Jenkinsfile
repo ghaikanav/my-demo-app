@@ -31,7 +31,7 @@ stages {
 
 stage('Run app'){
     steps{
-    sh "mvn spring-boot:run"
+        sh "mvn spring-boot:run"
     }
 }
 //   stage('Dockerise and run'){
