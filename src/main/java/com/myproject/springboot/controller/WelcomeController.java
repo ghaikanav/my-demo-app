@@ -21,8 +21,7 @@ public class WelcomeController {
 @GetMapping("/")
 
     public String welcome(@RequestParam(defaultValue = "User") String name){
-
-    return "Hi " + name + ", Welcome to my app!";
+        return "Hi " + name + ", Welcome to my app!";
     }
 
     @GetMapping("/users")
@@ -34,6 +33,6 @@ public class WelcomeController {
     @GetMapping("/users/{id}")
     public ResponseEntity<Optional<User>> fetchUserById(@PathVariable Integer id) {
         Optional<User> myUser = userService.getUserById(id);
-        return ResponseEntity.ok(myUser);
+       return ResponseEntity.ok(myUser);
     }
 }

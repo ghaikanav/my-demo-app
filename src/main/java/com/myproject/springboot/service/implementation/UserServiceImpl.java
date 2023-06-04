@@ -1,6 +1,6 @@
 package com.myproject.springboot.service.implementation;
 
-import com.myproject.springboot.Repository.UsersRepo;
+import com.myproject.springboot.repository.UsersRepo;
 import com.myproject.springboot.model.User;
 import com.myproject.springboot.service.UserService;
 
