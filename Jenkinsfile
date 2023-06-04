@@ -3,7 +3,6 @@ agent any
 tools {
 jdk 'Java17'
 maven 'maven'
-docker 'docker'
 }
 
 stages {
@@ -11,11 +10,6 @@ stages {
       steps {
           sh 'java --version'
       }
-  }
-  stage('Which Docker') {
-    steps {
-        sh 'docker --version'
-    }
   }
   stage('Install'){
     steps {
