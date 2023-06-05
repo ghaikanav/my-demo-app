@@ -13,10 +13,12 @@ To run dockerised app on your local leverage the Dockerfile using \
 If running app and database on a docker container, make sure to add the containers on a common network. \
 ```docker network create my-net``` \
 ```docker network connect my-net jenkins-docker``` \
-```docker network connect my-net mysql-container``` \
+```docker network connect my-net mysql-container``` 
 
 Get the IP address of containers using 
 ```docker network inspect my-net``` and use them wherever necessary, example : ```${spring.datasource.url}```
+
+When installing docker on jenkins container, resolve permission issues using https://www.baeldung.com/ops/root-user-password-docker-container#:~:text=As%20an%20alternative%2C%20we%20can,PID%20of%20the%20running%20container.&text=This%20allows%20us%20to%20access,command%20to%20access%20any%20file. 
 
 (Deprecated) \
 To resolve java version issue, refer

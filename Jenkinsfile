@@ -29,17 +29,17 @@ stages {
     }
   }
 
-stage('Run app'){
-    steps{
-        sh "mvn spring-boot:run"
-    }
-}
-//   stage('Dockerise and run'){
+// stage('Run app'){
 //     steps{
-//       sh "docker build -t myapp "
-//       sh "docker run -p 8081:8081 myapp"
+//         sh "mvn spring-boot:run"
 //     }
-//   }
+// }
+  stage('Dockerise and run'){
+    steps{
+      sh "docker build -t myapp "
+      sh "docker run -p 8081:8081 myapp"
+    }
+  }
 }
 post {
         failure {
