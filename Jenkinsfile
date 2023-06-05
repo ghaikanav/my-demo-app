@@ -36,8 +36,8 @@ stages {
 // }
   stage('Dockerise and run'){
     steps{
-      sh "sudo docker build -t myapp ."
-      sh "sudo docker run -p 8081:8081 myapp"
+      sh "docker build -t myapp ."
+      sh "docker run -p 8081:8081 myapp"
     }
   }
 }
