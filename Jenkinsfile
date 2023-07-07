@@ -29,11 +29,11 @@ stages {
     }
   }
 
-stage('Run app'){
-    steps{
-        sh "mvn spring-boot:run"
-    }
-}
+// stage('Run app'){
+//     steps{
+//         sh "mvn spring-boot:run"
+//     }
+// }
 
 stage('Build Docker Image') {
   steps {
