@@ -34,9 +34,17 @@ stage('Run app'){
         sh "mvn spring-boot:run"
     }
 }
-  stage('Dockerise and publish'){
-    steps{
+
+stage('Build Docker Image') {
+  steps {
+    script {
       def dockerImage = docker.build('kanavghai/myapp-repo:latest', '-f Dockerfile .')
+    }
+  }
+}
+
+  stage('Publish Docker Image'){
+    steps{
         docker.withRegistry('https://hub.docker.com', 'docker-hub-credentials-id') {
             dockerImage.push();
         }
