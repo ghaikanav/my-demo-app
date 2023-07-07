@@ -38,7 +38,8 @@ stage('Run app'){
     steps{
       def dockerImage = docker.build('kanavghai/myapp-repo:latest', '-f Dockerfile .')
         docker.withRegistry('https://hub.docker.com', 'docker-hub-credentials-id') {
-            dockerImage.push()
+            dockerImage.push();
+        }
     }
   }
 }
