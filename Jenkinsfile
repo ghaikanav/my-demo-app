@@ -34,12 +34,13 @@ stage('Run app'){
         sh "mvn spring-boot:run"
     }
 }
-//   stage('Dockerise and run'){
-//     steps{
-//       sh "docker build -t myapp ."
-//       sh "docker run -p 8081:8081 myapp"
-//     }
-//   }
+  stage('Dockerise and publish'){
+    steps{
+      def dockerImage = docker.build('kanavghai/myapp-repo:latest', '-f Dockerfile .')
+        docker.withRegistry('https://hub.docker.com', 'docker-hub-credentials-id') {
+            dockerImage.push()
+    }
+  }
 }
 post {
         failure {
