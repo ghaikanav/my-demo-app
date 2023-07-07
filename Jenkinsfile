@@ -28,7 +28,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    def dockerImage = docker.build('kanavghai/myapp-repo:latest', '-f Dockerfile .')
+                    def dockerImage = docker.build('kanavghai/myapp-repo:latest', '-f Dockerfile my-demo-app/')
                 }
             }
         }
