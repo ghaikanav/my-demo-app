@@ -35,6 +35,12 @@ pipeline {
                 }
             }
         }
+        stage('pull docker image and run') {
+                    steps {
+                        sh "docker pull kanavghai/myapp-repo:latest"
+                        sh "docker run -d -p 8081:8081 kanavghai/myapp-repo:latest"
+                    }
+                }
     }
     post {
         failure {
