@@ -30,7 +30,6 @@ pipeline {
                 script {
                     docker.withRegistry('', 'docker-hub-credentials-id') {
                         def dockerImage = docker.build('kanavghai/myapp-repo:latest', '-f Dockerfile .')
-                        def dockerImage = docker.image(env.DOCKER_IMAGE)
                         dockerImage.push()
                     }
                 }
