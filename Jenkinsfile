@@ -6,9 +6,9 @@ pipeline {
     }
 
     stages {
-        stage('Which Java?') {
+        stage('Who am i?') {
             steps {
-                sh 'java --version'
+                sh 'whoami'
             }
         }
         stage('Install') {
