@@ -35,7 +35,7 @@ pipeline {
         stage('Publish Docker Image') {
             steps {
                 script {
-                    docker.withRegistry('https://hub.docker.com', 'docker-hub-credentials-id') {
+                    docker.withRegistry('', 'docker-hub-credentials-id') {
                         dockerImage.push()
                     }
                 }
