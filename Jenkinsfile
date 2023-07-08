@@ -25,18 +25,11 @@ pipeline {
                 sh "mvn -Dmaven.test.skip=true clean install"
             }
         }
-        stage('Build Docker Image') {
-            steps {
-                script {
-                    def dockerImage = docker.build('kanavghai/myapp-repo:latest', '-f Dockerfile .')
-                    env.DOCKER_IMAGE = dockerImage.imageId
-                }
-            }
-        }
-        stage('Publish Docker Image') {
+        stage('Build and Publish Docker Image') {
             steps {
                 script {
                     docker.withRegistry('', 'docker-hub-credentials-id') {
+                        def dockerImage = docker.build('kanavghai/myapp-repo:latest', '-f Dockerfile .')
                         def dockerImage = docker.image(env.DOCKER_IMAGE)
                         dockerImage.push()
                     }
