@@ -6,7 +6,6 @@ pipeline {
     }
 
     stages {
-    def dockerImage
         stage('Who am i?') {
             steps {
                 sh 'whoami'
@@ -29,6 +28,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
+                    def dockerImage
                     dockerImage = docker.build('kanavghai/myapp-repo:latest', '-f Dockerfile .')
                 }
             }
