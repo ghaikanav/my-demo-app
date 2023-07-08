@@ -28,8 +28,8 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    def dockerImage
-                    dockerImage = docker.build('kanavghai/myapp-repo:latest', '-f Dockerfile .')
+                    def dockerImage = docker.build('kanavghai/myapp-repo:latest', '-f Dockerfile .')
+                    env.DOCKER_IMAGE = dockerImage.imageId
                 }
             }
         }
@@ -37,6 +37,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('', 'docker-hub-credentials-id') {
+                        def dockerImage = docker.image(env.DOCKER_IMAGE)
                         dockerImage.push()
                     }
                 }
