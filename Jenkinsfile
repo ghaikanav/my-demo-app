@@ -34,7 +34,7 @@ pipeline {
                     }
                 }
             }
-        }
+        } // make sure that database server is running
         stage('pull docker image and run') {
                     steps {
                         sh "docker pull kanavghai/myapp-repo:latest"
