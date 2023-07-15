@@ -5,6 +5,7 @@ import com.myproject.springboot.model.User;
 import com.myproject.springboot.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,11 +18,13 @@ public class UserServiceImpl implements UserService {
     UsersRepo repo;
 
     @Override
+    @Cacheable("users")
     public List<User> getAllUsers() {
         return repo.findAll();
     }
 
     @Override
+    @Cacheable(key = "#id", value = "my-user")
     public Optional<User> getUserById(Integer id) {
         return repo.findById(id);
     }
