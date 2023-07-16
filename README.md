@@ -27,6 +27,11 @@ where ```mysql-container``` is the container name of MySQL server.
 
 When installing docker on jenkins container, resolve permission issues using https://www.baeldung.com/ops/root-user-password-docker-container#:~:text=As%20an%20alternative%2C%20we%20can,PID%20of%20the%20running%20container.&text=This%20allows%20us%20to%20access,command%20to%20access%20any%20file. 
 
+For kafka, setup refer
+https://www.baeldung.com/ops/kafka-docker-setup
+https://docs.spring.io/spring-boot/docs/current/reference/html/messaging.html#messaging.amqp.sending
+ChatGPT ;)
+ 
 (Deprecated) \
 To resolve java version issue, refer
 https://medium.com/devops-with-valentine/jenkins-how-to-use-a-different-java-jdk-version-in-jenkinsfile-d1f0f2d04bcf
